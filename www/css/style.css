@@ -1,1 +1,9 @@
 /* Empty. Add your own CSS if you like */
+.degrade-birrias {
+    background: -moz-linear-gradient(-45deg, rgba(255, 119, 1, 1) 0, rgba(255, 119, 1, 1) 25%, rgba(226, 65, 70, 1) 100%)!important;
+    background: -webkit-gradient(left top, right bottom, color-stop(0, rgba(255, 119, 1, 1)), color-stop(25%, rgba(255, 119, 1, 1)), color-stop(100%, rgba(226, 65, 70, 1)))!important;
+    background: -webkit-linear-gradient(-45deg, rgba(255, 119, 1, 1) 0, rgba(255, 119, 1, 1) 25%, rgba(226, 65, 70, 1) 100%)!important;
+    background: -o-linear-gradient(-45deg, rgba(255, 119, 1, 1) 0, rgba(255, 119, 1, 1) 25%, rgba(226, 65, 70, 1) 100%)!important;
+    background: -ms-linear-gradient(-45deg, rgba(255, 119, 1, 1) 0, rgba(255, 119, 1, 1) 25%, rgba(226, 65, 70, 1) 100%)!important;
+    background: linear-gradient(135deg, rgba(255, 119, 1, 1) 0, rgba(255, 119, 1, 1) 25%, rgba(226, 65, 70, 1) 100%)!important;
+}

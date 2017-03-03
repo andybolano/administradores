@@ -1,0 +1,20 @@
+<ion-side-menu side="left" ng-controller="MenuCtrl" style="background-color: #333333">
+    <ion-content class="custom content-menu">
+        <div style="height:100px;padding-top:10px;background-color:#195D10" class="bg-menu">
+            <a class="item item-thumbnail-left" menu-toggle="left" ui-sref="cliente.perfil"  style="background-color: transparent;border:0">
+                <img src="img/user.png" style="border-radius:50%;width:60px;height: 60px">
+                <p style="color:#FFF;font-size:11px;">C.C. {{usuario.cedula}}</p>
+                <h2 style="font-weight:600;color:#FFF;font-size:12px;">{{usuario.nombres}} {{usuario.apellidos}}</h2>
+                <p style="color:#FFF;font-size:11px;">{{usuario.correo}}</p>
+              </a>
+        </div>
+        <ion-list>
+            <ion-item  menu-toggle="left" ui-sref="cliente.home" ><i class="icon ion-ios-home" style="padding-right:10px;color:#009C00;font-size:16px;"></i> Inicio</ion-item>  
+            <ion-item  menu-toggle="left" ui-sref="cliente.apuestas" ><i class="icon ion-thumbsup" style="padding-right:10px;color:#009C00;font-size:16px;"></i> Apostar</ion-item>  
+            <ion-item  menu-toggle="left" ui-sref="cliente.pendientes" ><i class="icon ion-trophy" style="padding-right:10px;color:#009C00;font-size:16px;"></i> Apuestas pendientes</ion-item>  
+            <ion-item  menu-toggle="left" ui-sref="cliente.historial" ><i class="icon ion-clock" style="padding-right:10px;color:#009C00;font-size:16px;"></i> Historial de apuestas</ion-item>
+            <ion-item  menu-toggle="left" ui-sref="cliente.cobros" ><i class="icon ion-cash" style="padding-right:10px;color:#009C00;font-size:16px;"></i> Cobros</ion-item>
+            <ion-item  menu-toggle="left" ui-sref="cliente.home" ng-click="cerrarSesion();" ><i class="icon ion-power" style="padding-right:10px;color:#009C00;font-size:16px;"></i> Cerrar Sesión</ion-item>
+        </ion-list>
+    </ion-content>
+</ion-side-menu>
