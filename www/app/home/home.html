@@ -2,7 +2,7 @@
 <ion-content overflow-scroll="false" class="has-header">
     <ion-refresher
     pulling-text="Actualizar Información..."
-    on-refresh="tickect_pendientes()">
+    on-refresh="getReservasHoy()">
   </ion-refresher>
        <div ng-if='vm.network == false' style='width: 100%; text-align: center;'>
                     <img src="img/notnetwork.png" alt="" width='60%' style='margin-top:20%;'/>
@@ -15,8 +15,26 @@
   <div class="item item-text-wrap">
       <div class="row">
           <div class="col">
-              <p class="num-big text-success">5</p>
+              <p class="num-big text-success">{{vm.reservas.length}}</p>
                 <small>Confirmadas</small> 
+          </div>
+          <div class="col">
+              <table width="100%">
+                  <tr>
+                      <td><small>Cumplidas:</small> </td>
+                      <td>{{vm.estadisticasReservas.cumplidas}}</td>
+                 </tr>
+                 <tr>
+                     <td><small>Incumplidas:</small> </td> 
+                     <td>{{vm.estadisticasReservas.incumplidas}}</td>
+                 </tr>
+                 <tr>
+                     <td> <small>Canceladas:</small></td>
+                     <td> {{vm.estadisticasReservas.canceladas}}</td>
+                 </tr>
+        
+             
+              </table>  
           </div>
       </div>
      
@@ -29,24 +47,24 @@
   <div class="item item-text-wrap">
       <div class="row">
           <div class="col">
-              <p class="num-small">$0</p>
+              <p class="num-small">{{vm.finanzas.realidad | currency:undefined:0}}</p>
               <small>Reservas</small>
           </div>
           <div class="col">
-              <p class="num-small">$0</p>
+              <p class="num-small">{{vm.finanzas.abonos | currency:undefined:0}}</p>
               <small>Abonos</small>
           </div>
       </div>
       <div class="row">
           <div class="col">
-              <p class="num-big text-success">$0</p>
+              <p class="num-big text-success">{{vm.finanzas.abonos + vm.finanzas.realidad | currency:undefined:0}}</p>
                 <small>Total Ingresos:</small> 
           </div>
       </div>
       <hr>
       <div class="row">
           <div class="col" style="text-align: right">
-              <p class="num-big text-info">$0</p>
+              <p class="num-big text-info">{{vm.finanzas.expectativa | currency:undefined:0}}</p>
                 <small>Posibles Ingresos:</small> 
           </div>
       </div>
