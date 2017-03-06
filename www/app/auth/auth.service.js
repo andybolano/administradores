@@ -11,56 +11,25 @@
 
         var service = {
             login: login,
-            session:session,
             currentUser: currentUser,
             logout: logout,
             autologin: autologin,
             registro:registro,
-         
 
         };
         return service;
 
-        function session(){
-            var defered = $q.defer();
-            var promise = defered.promise;
-            
-            var timeoutPromise = $timeout(function ()
-            {
-                canceler.resolve();
-                $ionicLoading.hide();
-                message("Tiempo de respuesta agotado, verifique su conexion");
-            }, 8000);
-
-            $ionicLoading.show();
-            var canceler = $q.defer();
-            
-            $http.get(API_URL+'sesion', {timeout: canceler.promise}).then(success, error);
-            return promise;
-
-            function success(p) {
-                $timeout.cancel(timeoutPromise);
-                storeSession(p.data);
-                defered.resolve(p.data);
-            }
-            function error(error) {
-                $timeout.cancel(timeoutPromise);
-                destroyCredenciales();
-                defered.reject(error);
-            }
-        }
         function login(user) {
            var defered = $q.defer();
             var promise = defered.promise;
-           
-              
-            $http.post(API_URL+'usuarioOnline/autenticar',user).then(success, error);
+            $http.post(API_URL+'/authenticate',user).then(success, error);
             return promise;
 
             function success(p) {
-            
               defered.resolve(p);
-              storeUser(p.data);
+              if(p.data.respuesta === true){
+                    storeUser(p.data);
+                }
             }
             function error(error) {
                 destroyCredenciales();
@@ -84,17 +53,17 @@
         };
       
 
-        function storeSession(session) {
-            $window.sessionStorage['token'] = JSON.stringify(session);
-        };
-        
-        function storeUser(usuario) {
-            $window.localStorage['usuario'] = usuario.request;
+
+        function storeUser(data) {
+            var data = JSON.parse("[" + data.user + "]");
+            localStorage.setItem('data',JSON.stringify(data[0].administrador));
+            localStorage.setItem('email',data[0].email);
+            localStorage.setItem('token',data[0].token);
+            localStorage.setItem('userIsLogin',true);
         };
         function currentUser() {            
-            return JSON.parse(localStorage.getItem('usuario'));
+            return JSON.parse(localStorage.getItem('data'));
         }
-        ;
 
         function autologin() {
             var defered = $q.defer();

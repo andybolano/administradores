@@ -1,35 +1,34 @@
 <ion-view title="Inicio de sesion">
     <ion-content overflow-scroll="false" class="center  degrade-birrias">
-         <div style="background-color: transparent;width:90%;margin-left:5%;text-align: center;margin-top:10%;"><br>
-             <div ng-hide="logo">
-             <img src="img/logo.png" alt="" width="100%;" />
-             <div class="spacer" style="height:10px;"></div>
+         <div style="background-color: transparent;width:90%;margin-left:5%;text-align: center;margin-top:5px;"><br>
+             <div ng-hide="vm.logo">
+             <img src="img/logo.png" alt="" width="60%;" />
              </div>
              <h5 style="color:#FFF;">A cualquier hora en cualquier lugar.</h5>
-              <div class="spacer" style="height:10px;"></div>
+             <div class="card">
                <div class="item item-text-wrap">
                         <div class="list list-inset">
                    <label class="item item-input">
                     <i class="icon ion-person placeholder-icon"></i>
-                    <input type="text" id="user" placeholder="Usuario"  ng-model="usuario.user" ng-required="true" class="box-login" ng-focus="hideLogo()" ng-blur="showLogo()">
+                    <input type="text" id="user" placeholder="Usuario"  ng-model="vm.usuario.user" ng-required="true" class="box-login" ng-focus="vm.hideLogo()" ng-blur="vm.showLogo()">
                 </label>
                         </div>
               <div class="list list-inset">
                     <label class="item item-input ">
                     <i class="icon ion-ios-locked placeholder-icon"></i>
-                    <input type="password"  id="password" placeholder="Contraseña"  ng-model="usuario.clave" ng-required="true" ng-focus="hideLogo()" ng-blur="showLogo()">
+                    <input type="password"  id="password" placeholder="Contraseña"  ng-model="vm.usuario.clave" ng-required="true" ng-focus="vm.hideLogo()" ng-blur="vm.showLogo()">
                 </label>
                 </div>
                        <div class="spacer" style="height:5px;"></div>
                 <button class="button button-block button-balanced"
-                        ng-click="iniciarSesion()">
+                        ng-click="vm.iniciarSesion()">
                    Iniciar Sesión
                 </button>
                <a ui-sref="registro" class="button button-block button-positive">
                   Registrarme
                 </a>
                 </div>
-            
+             </div>
             </div>
 
     </ion-content>

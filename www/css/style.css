@@ -11,6 +11,7 @@
 
 .button{
     border-radius: 0;
+     min-height: 40px;
 }
 .button.button-positive {
     border-color: transparent;
@@ -22,7 +23,7 @@
     border-color: transparent;
     background-color: #FF7701;
     color: #fff;
-    min-height: 40px;
+   
 }
 
 .bar.bar-energized {
@@ -32,3 +33,63 @@
     color: #fff;
 }
 
+
+.item-thumbnail-left, .item-thumbnail-left .item-content{
+    padding-left:80px;
+}
+
+.item-complex .item-content, .item-radio .item-content {
+    position: relative;
+    z-index: 2;
+    padding: 14px 49px 14px 16px;
+    border: none;
+    background-color:transparent;
+    color:#FFF;;
+    font-size:14px;
+}
+
+.item{
+   border-color:transparent;
+   background-color: transparent;
+}
+
+.item.active,
+.item.activated,
+.item-complex.active .item-content,
+.item-complex.activated .item-content,
+.item .item-content.active,
+.item .item-content.activated {
+  border-color:transparent;
+  background-color:transparent; 
+}
+
+.item.active.item-complex > .item-content, .item.activated.item-complex > .item-content, .item-complex.active .item-content.item-complex > .item-content, .item-complex.activated .item-content.item-complex > .item-content, .item .item-content.active.item-complex > .item-content, .item .item-content.activated.item-complex > .item-content {
+    border:0;
+    background-color:rgba(0,0,0,0.3);
+    border-left: 5px solid #FF7701;
+}
+.bg-menu{
+    background-color:#354546;
+    color:#354546;
+    background-size:100% 100%;
+    background-image:url(../img/bg.menu.jpg);
+}
+small{
+    font-size: 11px;
+}
+.num-small{
+ font-size:20px !important;   
+ font-weight:bold !important;
+}
+
+.num-big{
+     font-size:28px !important; 
+}
+
+.text-success {
+    color: #1c84c6 !important;
+}
+
+.text-info {
+    color: #23c6c8;
+}

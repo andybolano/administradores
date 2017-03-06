@@ -6,50 +6,51 @@
 
     /* @ngInject */
 
-    function AuthCtrl($scope, authService, $state, HOME, $ionicLoading, $window) {
-        $scope.usuario = {};
-        $scope.logo =false;
-    
+    function AuthCtrl(authService, $state, HOME, $ionicLoading) {
+         var vm = this;
+        vm.usuario = {};
+        vm.logo =false;
+        vm.iniciarSesion = iniciarSesion;
+        vm.hideLogo = hideLogo;
+        vm.showLogo = showLogo;
        
-        $scope.hideLogo = function(){
-                    $scope.logo = true;
+       function hideLogo(){
+         vm.logo = true;
         }
-        $scope.showLogo = function(){
-            $scope.logo = false;
+        function showLogo(){
+          vm.logo = false;
         }
         
     
         
-         $scope.iniciarSesion = function(){
-           if ($scope.usuario.user === undefined) {
+         function iniciarSesion(){
+           if (vm.usuario.user === undefined || vm.usuario.user === "") {
                 message("Ingresar Usuario");
                 return 0;
             }
-            if ($scope.usuario.user == undefined) {
+            if (vm.usuario.clave === undefined || vm.usuario.clave === "") {
                 message("Ingresar Contraseña");
                 return 0;
             };
 
             $ionicLoading.show();
             var object = {
-                username:$scope.usuario.user,
-                pass:$scope.usuario.clave,
-                _token:$scope.usuario.token
+                email:vm.usuario.user,
+                password:vm.usuario.clave
             };           
             authService.login(object).then(success, error);
             function success(d) { 
-          
-                 if (d.data.message === "Correcto") {                    
-                      $ionicLoading.hide();
+                 if (d.data.respuesta === true) {                    
+                     $ionicLoading.hide();
                      $state.go(HOME);                                                    
-                } else{
+                }else{
                      $ionicLoading.hide(); 
-                     message(d.data.request);
-                     localStorage.clear();
+                     message(d.data.message);
+                     return false;
                 }
-   
             }
             function error(error) {
+                console.log(JSON.stringify(error))
                 $ionicLoading.hide();
                 message("Verifica tu conexión");
             }
@@ -62,7 +63,6 @@
        
     }
 })();
-
 
 
 
