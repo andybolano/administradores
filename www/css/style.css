@@ -7,3 +7,28 @@
     background: -ms-linear-gradient(-45deg, rgba(255, 119, 1, 1) 0, rgba(255, 119, 1, 1) 25%, rgba(226, 65, 70, 1) 100%)!important;
     background: linear-gradient(135deg, rgba(255, 119, 1, 1) 0, rgba(255, 119, 1, 1) 25%, rgba(226, 65, 70, 1) 100%)!important;
 }
+
+
+.button{
+    border-radius: 0;
+}
+.button.button-positive {
+    border-color: transparent;
+    background-color: #2962ff;
+    color: #fff;
+}
+
+.button.button-balanced {
+    border-color: transparent;
+    background-color: #FF7701;
+    color: #fff;
+    min-height: 40px;
+}
+
+.bar.bar-energized {
+    border-color: #FF7701;
+    background-color: #FF7701;
+    background-image:none;
+    color: #fff;
+}
+

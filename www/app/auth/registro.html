@@ -1,83 +1,51 @@
 <ion-view title="Registro de Usuario">
-    <div class="bar bar-header bar-assertive">
+    <div class="bar bar-header bar-energized">
         <a class="button button-icon icon ion-ios-arrow-thin-left" ui-sref="login"></a>
   <h1 class="title">Registro de usuario</h1>
     </div>
-    <ion-content overflow-scroll="false"  class="center has-header">
-          <form name="frmRegistro" novalidate >
+    <ion-content overflow-scroll="false"  class="has-header center  degrade-birrias">
+          <form name="frmRegistro" novalidate  style="width: 90%;margin-left: 5%;">
         <div class="row">
-            <div class="col">
-            <div class="list">
-            <div class="item item-divider info">
-                Información personal
-            </div>
-             <label class="item item-input" style="border:1px solid #e0e0e0">
-               <span class="input-label">Cedula:</span>
-               <input type="number"  ng-model="Cliente.cedula" name="cedula" required ng-pattern="/^[0-9]{5,12}$/" maxlength="12" ng-blur="validarCedula()">
-             </label>
-             <label class="item item-input" style="border:1px solid #e0e0e0">
-               <span class="input-label">Nombres:</span>
-               <input type="text" ng-model="Cliente.nombres" required ng-pattern="/^[A-Za-záéíóúñ]{3,}/" maxlength="50">
-             </label>
-                <label class="item item-input" style="border:1px solid #e0e0e0">
-               <span class="input-label"  >Apellidos:</span>
-               <input type="text" ng-model="Cliente.apellidos" required ng-pattern="/^[A-Za-záéíóúñ]{3,}/" maxlength="50">
-             </label>
-                <label class="item item-input" style="border:1px solid #e0e0e0">
-               <span class="input-label">Email:</span>
-               <input type="email" ng-model="Cliente.correo" name="correo" ng-blur="validarEmail()"  required ng-pattern="/^([\da-zA-Z_\.-]+)@([\da-zA-Z\.-]+)\.([a-zA-Z\.]{2,6})$/">
-             </label>
-                <label class="item item-input" style="border:1px solid #e0e0e0">
-               <span class="input-label">Teléfono:</span>
-               <input type="number"  ng-model="Cliente.telefono" required ng-pattern="/^[0-9]{6,20}$/">
-             </label>
-                <label class="item item-input" style="border:1px solid #e0e0e0">
-               <span class="input-label">Fecha de Nacimiento:</span>
-               <input type="date" min="1940-01-01" format="yyyy-MM-dd" ng-model="Cliente.fechaNacimiento">
-             </label>
-           </div>
-            </div>
+            <div class="item item-text-wrap" style="width: 100%">
+                   
+                <h3>Información basica</h3>
+                    <label class="item item-input">
+                      <input type="text" placeholder="Nombres" ng-model="vm.usuario.nombres">
+                    </label>
+                    <label class="item item-input">
+                      <input type="text" placeholder="Apellidos" ng-model="vm.usuario.apellidos">
+                    </label>
+                   <label class="item item-input">
+                      <input type="number" placeholder="Cedula" ng-model="vm.usuario.cedula">
+                    </label>
+                    <label class="item item-input">
+                      <input type="email" placeholder="Correo de su sitio" ng-model="vm.usuario.correositio">
+                    </label>
+                        <label class="item item-input">
+                      <input type="password" placeholder="Contraseña de su sitio" ng-model="vm.usuario.passwordsitio">
+                    </label>
+                  
+                </div>
         </div>
-         <div class="row">
-            <div class="col">
-            <div class="list">
-            <div class="item item-divider info">
-                Información de Acceso
-            </div>
-             <label class="item item-input" style="border:1px solid #e0e0e0">
-               <span class="input-label">Nombre Usuario:</span>
-               <input type="text" ng-model="Cliente.username" ng-blur="validarUser()"  required ng-pattern="/^[a-zA-Z0-9]{4,15}$/">
-             </label>
-             <label class="item item-input" style="border:1px solid #e0e0e0">
-               <span class="input-label" >Contraseña:</span>
-               <input type="password"  ng-model="Cliente.clave"  ng-pattern="/(?=^.{6,}$)(?=.*\d)(?![.\n])(?=.*[a-zA-Z]).*$/"  maxlength="15" placeholder="numeros y letras">
-             </label>
-             <label class="item item-input" style="border:1px solid #e0e0e0">
-               <span class="input-label">Departamento:</span>
-               <select style="width:70%" ng-model="Cliente.idDepartamento" ng-change="loadMunicipios()"  ng-required="true">
-                   <option ng-repeat="d in Departamentos" value="{{d.iddepartamento}}">{{d.nombre}}</option>
-               </select>
-             </label>
-             <label class="item item-input" style="border:1px solid #e0e0e0">
-               <span class="input-label">Municipio:</span>
-               <select style="width:70%" ng-model="Cliente.idMunicipio">
-                   <option ng-repeat="m in Municipios" value="{{m.idmunicipio}}">{{m.nombreMunicipio}}</option>
-               </select>
-             </label>
-             <label class="item item-input" style="border:1px solid #e0e0e0">
-               <span class="input-label">Dirección:</span>
-               <input type="text" ng-model="Cliente.direccion">
-             </label>
-           </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col" style="width:100%">
-                <button class="button button-balanced" style="width: 90%;margin-left:5%" ng-click="registro()"  ng-disabled="frmRegistro.$invalid" ng-hide="oculto" id="btnRegistro">
+         <div class="row" style="margin-top:8px;">
+             <div class="item item-text-wrap" style="width: 100%">
+                 <h3>Información de acceso</h3>
+                  <label class="item item-input">
+                      <input type="email" placeholder="Correo personal" ng-model="vm.usuario.correo">
+                    </label>
+                 <label class="item item-input">
+                      <input type="password" placeholder="Contraseña" ng-model="vm.usuario.password">
+                    </label>
+                 <label class="item item-input">
+                      <input type="password" placeholder="Confirmar Contraseña" ng-model="vm.usuario.passwordconfirmada">
+                    </label>
+                 
+                <button class="button button-balanced"  ng-click="vm.registro()"  ng-disabled="frmRegistro.$invalid" ng-hide="vm.oculto" id="btnRegistro" style="width: 100%;margin-top:8px;">
                     Registrarme
                 </button>
-            </div>
+             </div>
         </div>
+
           </form>
     </ion-content>
 </ion-view>

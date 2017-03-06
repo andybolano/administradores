@@ -7,25 +7,29 @@
              </div>
              <h5 style="color:#FFF;">A cualquier hora en cualquier lugar.</h5>
               <div class="spacer" style="height:10px;"></div>
-              <div class="card">
-                   <div class="item item-text-wrap">
+               <div class="item item-text-wrap">
+                        <div class="list list-inset">
                    <label class="item item-input">
                     <i class="icon ion-person placeholder-icon"></i>
                     <input type="text" id="user" placeholder="Usuario"  ng-model="usuario.user" ng-required="true" class="box-login" ng-focus="hideLogo()" ng-blur="showLogo()">
                 </label>
-                <label class="item item-input">
+                        </div>
+              <div class="list list-inset">
+                    <label class="item item-input ">
                     <i class="icon ion-ios-locked placeholder-icon"></i>
                     <input type="password"  id="password" placeholder="Contraseña"  ng-model="usuario.clave" ng-required="true" ng-focus="hideLogo()" ng-blur="showLogo()">
                 </label>
+                </div>
                        <div class="spacer" style="height:5px;"></div>
                 <button class="button button-block button-balanced"
                         ng-click="iniciarSesion()">
-                   Iniciar Sesion
+                   Iniciar Sesión
                 </button>
+               <a ui-sref="registro" class="button button-block button-positive">
+                  Registrarme
+                </a>
                 </div>
-              </div>
-                 <div class="spacer" style="height:10px;"></div>
-                 <a ui-sref="registro">Registrarme</a>
+            
             </div>
 
     </ion-content>

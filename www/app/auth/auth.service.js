@@ -16,7 +16,7 @@
             logout: logout,
             autologin: autologin,
             registro:registro,
-            enviarEmail:enviarEmail
+         
 
         };
         return service;
@@ -71,14 +71,8 @@
         function registro(object){
             var defered = $q.defer();
             var promise = defered.promise;
-           
-              
-            var config = {headers:  {
-                   'X-CSRF-Token': localStorage.getItem("_token")
-                }
-            };
-            
-            $http.post(API_URL+'cliente',object,config).then(success, error);
+        
+            $http.post(API_URL+'/administrador',object).then(success, error);
             return promise;
 
             function success(p) {
@@ -88,26 +82,7 @@
                 defered.reject(error);
             }
         };
-        
-        
-        function enviarEmail(object){
-            var defered = $q.defer();
-            var promise = defered.promise;
-            
-             var config = {headers:  {
-                   'X-CSRF-Token': localStorage.getItem("_token")
-                }
-            };
-            $http.post(API_URL + 'cliente/enviarEmail',object,config).then(success, error);
-            return promise;
-            
-            function success(p) {
-              defered.resolve(p);
-            }
-            function error(error) {
-                defered.reject(error);
-            }
-        };
+      
 
         function storeSession(session) {
             $window.sessionStorage['token'] = JSON.stringify(session);
