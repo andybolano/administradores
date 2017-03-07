@@ -35,7 +35,7 @@
     </div>
             <div class="card" style="margin-top:8px;">
   <div class="item item-divider info">
-    Reservas Realizadas
+      Reservas Realizadas  <div style="float: right" class="badge badge-assertive">{{vm.reservas.length}}</div>
   </div>
   <div class="item item-text-wrap">
       <div class="row">
@@ -100,4 +100,7 @@
 
 <script id="modalReservas.html" type="text/ng-template">
       <ng-include src="'app/historial/modalReservas.html'"></ng-include>
+</script>
+<script id="reserva.html" type="text/ng-template">
+      <ng-include src="'app/include/reserva.html'"></ng-include>
 </script>

@@ -4,6 +4,22 @@
       <button class="button button-clear button-positive" ng-click="vm.closeModal();"><i class="ion ion-close" style="color:#FFF"></i></button>
     </ion-header-bar>
     <ion-content>
-        
+        <div ng-if="vm.reservas.length == 0">
+            <h3>No hay reservas en estas fechas</h3>
+        </div>
+        <div ng-if="vm.reservas.length > 0">
+            <div class="list list-inset" style="border:1px solid #e0e0e0;"> 
+                <label class="item item-input">
+                  <i class="icon ion-search placeholder-icon"></i>
+                  <input type="text" placeholder="Buscar" ng-model="filtro">
+                </label>
+              </div>
+            <ul class="list">
+                <li class="item" ng-repeat="item in vm.reservas | filter: filtro | orderBy : ['fecha', 'hora'] " style="border-bottom:1px solid #e0e0e0;" ng-click="vm.viewReserva(item);">
+                    {{item.fecha}} {{item.diaSemana}} - {{item.hora}}:00 <br>
+                    {{item.nombres}} 
+                </li>
+            </ul>
+        </div>
     </ion-content>
   </ion-modal-view>

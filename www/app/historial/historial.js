@@ -19,18 +19,27 @@
     /* @ngInject */
     function HistorialCtrl($ionicLoading,$scope,$ionicModal,reservasService,sessionService) {
     var vm = this;
-   vm.finanzas = {};
+    vm.finanzas = {};
     vm.estadisticasReservas = {};
     vm.fecha1 = new Date();
     vm.fecha2 = new Date();
     vm.getReservas = getReservas;
     vm.openModal = openModal;
-     vm.closeModal = closeModal;
+    vm.closeModal = closeModal;
+    vm.viewReserva = viewReserva;
+    vm.v_reserva = {};
   $ionicModal.fromTemplateUrl('modalReservas.html', {
     scope: $scope,
     animation: 'slide-in-up'
   }).then(function(modal) {
     $scope.modal = modal;
+  });
+  
+  $ionicModal.fromTemplateUrl('reserva.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modalReserva = modal;
   });
     
     
@@ -93,14 +102,24 @@
                         
                     }, function (err) {
                         if (err.status == 401) {
-                            toastr["error"](err.data.respuesta);
+                            message(err.data.respuesta);
                         } else {
-                            toastr["error"]("Ha ocurrido un problema!");
+                            message("Ha ocurrido un problema!");
                         }
                     });
                 }
                 
                 getReservas();
+                
+                 function message(msg) {
+            $ionicLoading.show({template: msg, noBackdrop: true, duration: 2000});
+        }
+        
+        function viewReserva(reserva){
+            vm.v_reserva = reserva;
+             $scope.modalReserva.show();
+             alert();
+        }
                 
     }
 })();
