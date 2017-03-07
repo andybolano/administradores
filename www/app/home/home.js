@@ -67,10 +67,8 @@
     function getReservasHoy(){
                var fecha = new Date().toDateInputValue();
                   var promisePost = reservasService.getByFechaAll(sessionService.getIdSitio(), fecha);
-                        promisePost.then(function (d) {
-                            
+                        promisePost.then(function (d) {  
                           drawChart();
-                          
                             vm.finanzas.expectativa = parseInt(d.data.finanzas.posibleEntrada);
                             vm.finanzas.realidad = parseInt(d.data.finanzas.dineroEntrante);
                             vm.finanzas.abonos = parseInt(d.data.finanzas.abonos);

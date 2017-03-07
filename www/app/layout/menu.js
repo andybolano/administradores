@@ -4,7 +4,7 @@
             .module('app')
             .controller('MenuCtrl', MenuCtrl);
     /* @ngInject */
-    function MenuCtrl(authService, $ionicLoading,$location) {
+    function MenuCtrl(authService, $ionicLoading,$location,$state) {
         var vm = this;
         vm.usuario = {};
         vm.logout = logout;

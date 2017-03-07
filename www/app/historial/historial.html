@@ -1,0 +1,103 @@
+<ion-view  title="Historial de Reservas" cache-view="false" class="platform-android4_2" style="background-color:#F3F3F4">
+<ion-content overflow-scroll="false" class="has-header">
+    <div class="card">
+    <div class="row">
+        <div class="col col-20">
+            Desde:
+        </div>
+        <div class="col">
+            <div class="list" style="border:1px solid #e0e0e0">
+                <label class="item item-input">
+                  <i class="icon ion-calendar placeholder-icon"></i>
+                  <input type="date" ng-model="vm.fecha1">
+                </label>
+              </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-20">
+            Hasta:
+        </div>
+        <div class="col">
+            <div class="list" style="border:1px solid #e0e0e0">
+                <label class="item item-input">
+                  <i class="icon ion-calendar placeholder-icon"></i>
+                  <input type="date" ng-model="vm.fecha2">
+                </label>
+              </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button class="button button-positive" style="width: 100%"  ng-click="vm.getReservas()">Consultar</button>
+        </div>
+    </div>
+    </div>
+            <div class="card" style="margin-top:8px;">
+  <div class="item item-divider info">
+    Reservas Realizadas
+  </div>
+  <div class="item item-text-wrap">
+      <div class="row">
+          <div class="col">
+              <p class="num-big text-success">{{vm.estadisticasReservas.cumplidas}}</p>
+                <small>Cumplidas</small> 
+          </div>
+          <div class="col">
+              <table width="100%">
+                  <tr>
+                      <td><p>Espera:</p> </td>
+                      <td>{{vm.estadisticasReservas.espera}}</td>
+                 </tr>
+                 <tr>
+                     <td><p>Incumplidas:</p> </td> 
+                     <td>{{vm.estadisticasReservas.incumplidas}}</td>
+                 </tr>
+                 <tr>
+                     <td> <p>Canceladas:</p></td>
+                     <td> {{vm.estadisticasReservas.canceladas}}</td>
+                 </tr>
+        
+             
+              </table>  
+          </div>
+      </div>
+     
+  </div>
+</div> 
+    <div class="card">
+  <div class="item item-divider info">
+    Ingresos Obtenidos
+  </div>
+  <div class="item item-text-wrap">
+      <div class="row">
+          <div class="col">
+              <p class="num-small">{{vm.finanzas.realidad | currency:undefined:0}}</p>
+              <small>Reservas</small>
+          </div>
+          <div class="col">
+              <p class="num-small">{{vm.finanzas.abonos | currency:undefined:0}}</p>
+              <small>Abonos</small>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col">
+              <p class="num-big text-success">{{vm.finanzas.abonos + vm.finanzas.realidad | currency:undefined:0}}</p>
+                <small>Total Ingresos:</small> 
+          </div>
+      </div>
+      <div class="row">
+          <div class="col" style="text-align: center;">
+              <a class="button button-clear button-positive" ng-click="vm.openModal();">
+                  <i class="ion ion-search"></i> Ver reservas
+              </a>
+          </div>
+      </div>
+  </div>
+</div> 
+</ion-content>
+</ion-view>
+
+<script id="modalReservas.html" type="text/ng-template">
+      <ng-include src="'app/historial/modalReservas.html'"></ng-include>
+</script>

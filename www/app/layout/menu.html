@@ -9,10 +9,10 @@
               </a>
         </div>
         <ion-list>
-            <ion-item  menu-toggle="left" ui-sref="cliente.home"  ng-class="{active : vm.isActive ('/usuario/home')}" ><i class="icon ion-home" style="padding-right:5px;"></i> Inicio</ion-item>  
-            <ion-item  menu-toggle="left" ui-sref="cliente.apuestas"  ng-class="{active : vm.isActive ('/')}"><i class="icon ion-clock" style="padding-right:5px;"></i>Agendas</ion-item>  
-            <ion-item  menu-toggle="left" ui-sref="cliente.pendientes"  ng-class="{active : vm.isActive ('/')}"><i class="icon ion-calendar" style="padding-right:5px;"></i>Historial</ion-item>  
-            <ion-item  menu-toggle="left" ui-sref="cliente.home" ng-click="cerrarSesion();" ><i class="icon ion-log-out" style="padding-right:5px;"></i> Cerrar Sesión</ion-item>
+            <ion-item  menu-toggle="left" ui-sref="usuario.home"  ng-class="{active : vm.isActive ('/usuario/home')}" ><i class="icon ion-android-home" style="padding-right:5px;"></i> Inicio</ion-item>  
+            <ion-item  menu-toggle="left" ui-sref="usuario.agenda"  ng-class="{active : vm.isActive ('/usuario/agenda')}"><i class="icon ion-android-time" style="padding-right:5px;"></i>Agenda de canchas</ion-item>  
+            <ion-item  menu-toggle="left" ui-sref="usuario.historial"  ng-class="{active : vm.isActive ('/usuario/historial')}"><i class="icon ion-android-calendar" style="padding-right:5px;"></i>Historial de reservas</ion-item>  
+            <ion-item  menu-toggle="left" href="javascript:;cd C:" ng-click="logout();" ><i class="icon ion-android-exit" style="padding-right:5px;"></i> Cerrar Sesión</ion-item>
         </ion-list>
     </ion-content>
 </ion-side-menu>
