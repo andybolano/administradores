@@ -5,6 +5,7 @@
                 $stateProvider
                         .state('usuario.home', {
                             url: '/home',
+                    cache:false,
                             templateUrl: 'app/home/home.html',
                             controller: 'homeCtrl as vm'
                         })

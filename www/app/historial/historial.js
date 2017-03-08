@@ -5,6 +5,7 @@
                 $stateProvider
                         .state('usuario.historial', {
                             url: '/historial',
+                            cache:false,
                             templateUrl: 'app/historial/historial.html',
                             controller: 'historialCtrl as vm'
                         })
@@ -30,6 +31,7 @@
         vm.viewReserva = viewReserva;
         vm.v_reserva = {};
         vm.v_estadisticas = {};
+        
         $ionicModal.fromTemplateUrl('modalReservas.html', {
             scope: $scope,
             animation: 'slide-in-up'
@@ -68,7 +70,6 @@
             vm.estadisticasReservas.canceladas = 0;
             vm.estadisticasReservas.cumplidas = 0;
             vm.estadisticasReservas.espera = 0;
-
             var promisePost = reservasService.getEstadisticasByFecha(sessionService.getIdSitio(), vm.fecha1.toDateInputValue(), vm.fecha2.toDateInputValue());
             promisePost.then(function (d) {
                 var i = 0;
