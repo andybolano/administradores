@@ -96,9 +96,11 @@
         }
 
         function getReservas() {
+            $ionicLoading.show();
             var promisePost = reservasService.getHistorial(sessionService.getIdSitio(), vm.fecha1.toDateInputValue(), vm.fecha2.toDateInputValue());
             promisePost.then(function (d) {
                 vm.reservas = d.data.reservas;
+                $ionicLoading.hide();
                 drawChart();
                 vm.finanzas.expectativa = parseInt(d.data.finanzas.posibleEntrada);
                 vm.finanzas.realidad = parseInt(d.data.finanzas.dineroEntrante);
@@ -124,10 +126,11 @@
             vm.v_estadisticas.cumplidas = 0;
             vm.v_estadisticas.incumplidas = 0;
             vm.v_estadisticas.canceladas = 0;
-
+$ionicLoading.show();
             var promisePost = clienteService.get(reserva.idCliente);
             promisePost.then(function (d) {
                 vm.v_cliente = d.data.cliente;
+                $ionicLoading.hide();
                   $scope.modalReserva.show();
                 for (var i = 0; i < d.data.reservas.length; i++) {
                     if (d.data.reservas[i].estado === 'cumplida') {

@@ -66,9 +66,11 @@
 }
     function getReservasHoy(){
                var fecha = new Date().toDateInputValue();
+                 $ionicLoading.show();
                   var promisePost = reservasService.getByFechaAll(sessionService.getIdSitio(), fecha);
                         promisePost.then(function (d) {  
                           drawChart();
+                            $ionicLoading.hide();
                             vm.finanzas.expectativa = parseInt(d.data.finanzas.posibleEntrada);
                             vm.finanzas.realidad = parseInt(d.data.finanzas.dineroEntrante);
                             vm.finanzas.abonos = parseInt(d.data.finanzas.abonos);
