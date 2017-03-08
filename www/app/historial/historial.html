@@ -1,5 +1,5 @@
 <ion-view  title="Historial de Reservas" cache-view="false" class="platform-android4_2" style="background-color:#F3F3F4">
-<ion-content overflow-scroll="false" class="has-header">
+    <ion-content overflow-scroll="false" class="has-header">
    <div style="background-color:#FF7701;color:#FFF;">
     <div class="row">
         <div class="col col-20">
@@ -33,7 +33,31 @@
         </div>
     </div>
     </div>
-            <div class="card" style="margin-top:8px;">
+          
+    <div class="card" style="margin-top:8px;">
+  <div class="item item-divider info">
+    Ingresos Obtenidos
+  </div>
+  <div class="item item-text-wrap">
+      <div class="row">
+          <div class="col">
+              <p class="num-small">{{vm.finanzas.realidad | currency:undefined:0}}</p>
+              <small>Reservas</small>
+          </div>
+          <div class="col">
+              <p class="num-small">{{vm.finanzas.abonos | currency:undefined:0}}</p>
+              <small>Abonos</small>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col">
+              <p class="num-big text-success">{{vm.finanzas.abonos + vm.finanzas.realidad | currency:undefined:0}}</p>
+                <small>Total Ingresos:</small> 
+          </div>
+      </div>
+  </div>
+</div> 
+          <div class="card" >
   <div class="item item-divider info">
       Reservas Realizadas  <div style="float: right" class="badge badge-assertive">{{vm.reservas.length}}</div>
   </div>
@@ -57,36 +81,10 @@
                      <td> <p>Canceladas:</p></td>
                      <td> {{vm.estadisticasReservas.canceladas}}</td>
                  </tr>
-        
-             
               </table>  
           </div>
       </div>
-     
-  </div>
-</div> 
-    <div class="card">
-  <div class="item item-divider info">
-    Ingresos Obtenidos
-  </div>
-  <div class="item item-text-wrap">
-      <div class="row">
-          <div class="col">
-              <p class="num-small">{{vm.finanzas.realidad | currency:undefined:0}}</p>
-              <small>Reservas</small>
-          </div>
-          <div class="col">
-              <p class="num-small">{{vm.finanzas.abonos | currency:undefined:0}}</p>
-              <small>Abonos</small>
-          </div>
-      </div>
-      <div class="row">
-          <div class="col">
-              <p class="num-big text-success">{{vm.finanzas.abonos + vm.finanzas.realidad | currency:undefined:0}}</p>
-                <small>Total Ingresos:</small> 
-          </div>
-      </div>
-      <div class="row">
+          <div class="row">
           <div class="col" style="text-align: center;">
               <a class="button button-clear button-positive" ng-click="vm.openModal();">
                   <i class="ion ion-search"></i> Ver reservas

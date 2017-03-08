@@ -47,18 +47,15 @@
 
         function openModal() {
             $scope.modal.show();
-        }
-        ;
+        };
 
 
         function closeModal() {
             $scope.modal.hide();
-        }
-        ;
+        };
         function closeModalReserva() {
             $scope.modalReserva.hide();
-        }
-        ;
+        };
         Date.prototype.toDateInputValue = (function () {
             var local = new Date(this);
             local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
@@ -132,7 +129,7 @@
             var promisePost = clienteService.get(reserva.idCliente);
             promisePost.then(function (d) {
                 vm.v_cliente = d.data.cliente;
-
+                  $scope.modalReserva.show();
                 for (var i = 0; i < d.data.reservas.length; i++) {
                     if (d.data.reservas[i].estado === 'cumplida') {
                         vm.v_estadisticas.cumplidas = d.data.reservas[i].cantidad;
@@ -153,7 +150,7 @@
                 }
             });
 
-            $scope.modalReserva.show();
+          
         }
 
     }
