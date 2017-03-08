@@ -20,16 +20,16 @@
            }
                 
        function logout(){
-                      authService.logout().then(success, error);
-                      function success(d) {
+                var promisePost = authService.logout();
+                      promisePost.then(function (d) {
                           localStorage.clear();
                           sessionStorage.clear();
                            message("sesión finalizada!");
                              $state.go('login',{},{reload: true});
-                        }
+                        },
                         function error(error) {
                            messge(error.data.error);
-                        }
+                        });
                 }
                 
          function message(msg) {
