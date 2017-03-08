@@ -99,8 +99,6 @@
                 $ionicHistory.clearHistory();
                 $ionicHistory.nextViewOptions({ disableBack: true, historyRoot: true });
                 $ionicLoading.hide();
-                $state.go('login',{},{reload: true});
-                
                 }, 30);
             //});
         }

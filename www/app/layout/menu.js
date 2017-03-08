@@ -25,7 +25,7 @@
                           localStorage.clear();
                           sessionStorage.clear();
                            message("sesión finalizada!");
-                          $state.go('login');
+                             $state.go('login',{},{reload: true});
                         }
                         function error(error) {
                            messge(error.data.error);
