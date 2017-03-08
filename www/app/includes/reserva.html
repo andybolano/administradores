@@ -3,15 +3,15 @@
          <button class="button button-clear button-positive" ng-click="vm.closeModalReserva();" style="float: right;z-index:1001"><i class="ion ion-close" style="color:red;font-size:24px;"></i></button>
  
                   <div class="item item-text-wrap">
-                      <span style="font-weight: 600;">Información del cliente</span>
+                      <span style="font-weight: 600;color:#c62828">Información del cliente</span>
                       <div class="row">
                           <div class="col col-20">
-                              <img src='img/profile-user.png' style='width:60px;height:60px'>
+                              <img src='img/profile-user.png' style='width:50px;height:50px'>
                           </div>
-                          <div class='col' style='text-transform: uppercase;font-size:14px;'>
+                          <div class='col col-80' style='text-transform: uppercase;font-size:14px;'>
                               <div style='margin-top:10px;'>
                               <h4 style='font-weight:500'>{{vm.v_reserva.nombres}}</h4>
-                              <h4>{{vm.v_reserva.telefono}}</h4>
+                              <p>{{vm.v_reserva.telefono}}</p>
                               </div> 
                           </div>
                       </div>
@@ -35,19 +35,19 @@
              </div>   
          
                   <div class="item item-text-wrap">
-                      <span style="font-weight: 600;">Información de reserva</span>
+                      <span style="font-weight: 600;color:#c62828">Información de reserva</span>
                       <div class="row">
                           <div class="col">
                                   <p> <strong>Cancha:</strong> {{vm.v_reserva.nombrecancha}}</p>
                                   <p> <strong>Fecha:</strong> {{vm.v_reserva.fecha}}</p>
-                                  <p> <strong>Hora:</strong> {{vm.v_reserva.hora}}:00</p>
+                                  <p class='text-success'> <strong>Hora:</strong> {{vm.v_reserva.hora}}:00</p>
 
      
-                                  <div  style="text-align: center;">
+                                  <div style='margin-left:23px;'>
                                    
                                     <p ng-if="vm.v_reserva.estado === 'confirmadasinabono'"><span class="badge badge-balanced">CONFIRMADA SIN ABONO</span></p>
                                     <p ng-if="vm.v_reserva.estado === 'confirmadaconabono'"><span class="badge badge-balanced">CONFIRMADA CON ABONO</span></p>
-                                    <p ng-if="vm.v_reserva.estado === 'cumplida'"><span class="badge badge-assertive">CUMPLIDA</span></p>
+                                    <p ng-if="vm.v_reserva.estado === 'cumplida'"><span class="badge badge-positive">CUMPLIDA</span></p>
                                     <p ng-if="vm.v_reserva.estado === 'incumplida'"><span class="badge badge-dark">INCUMPLIDA</span></p>
                                     <p ng-if="vm.v_reserva.estado === 'cancelada'"><span class="badge badge-dark">CANCELADA</span></p>
                                     
@@ -57,15 +57,27 @@
                       
              </div> 
          <div class="item item-text-wrap">
-                      <span style="font-weight: 600;">Información financiera</span>
-                      <div class="row">
-                          <div class="col">
-                               <p><strong>Valor:</strong> {{vm.v_reserva.precio | currency:undefined:0}}</p>
-                        <p><strong>Abono Requerido:</strong> {{vm.v_reserva.abonoRequerido |currency:undefined:0}}</p>
-                        <p><strong>Abono Liquidado:</strong> {{vm.v_reserva.abonoLiquidado | currency:undefined:0}}</p>
-                        <p><strong>Valor Pagado:</strong> {{vm.v_reserva.pago | currency:undefined:0}}</p>
-                          </div>
-                      </div>    
+                      <span style="font-weight: 600;color:#c62828">Información financiera</span>
+                      <table class='table'>
+                          <tr>
+                              <td style='width:70%'><p>Valor:</p></td>
+                             <td class='num-min'><p>{{vm.v_reserva.precio | currency:undefined:0}}</p></td>
+                          </tr>
+                          <tr>
+                              <td><p>Abono Requerido:</p> </td>
+                              <td class='num-min'>{{vm.v_reserva.abonoRequerido |currency:undefined:0}}</td>
+                          </tr>
+                          <tr>
+                              <td><p>Abono Liquidado:</p></td>
+                              <td class='num-min'>{{vm.v_reserva.abonoLiquidado | currency:undefined:0}}</td>
+                          </tr>
+                          <tr>
+                              <td><p class='text-success'>Valor Pagado:</p></td>
+                              <td class='num-min text-success'>{{vm.v_reserva.pago | currency:undefined:0}}</td>
+                          </tr>
+                      </table>
+                  </div>
+                        
          </div>     
     </ion-content>
   </ion-modal-view>

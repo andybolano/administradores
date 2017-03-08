@@ -5,8 +5,8 @@
     </ion-header-bar>
      <div class="bar bar-subheader bar-assertive">
         
-            <label class="item item-input" style="background-color:#b71c1c; width: 90%;margin-left:5%;border-radius:10px;margin-top:-5px;">
-              <i class="icon ion-search placeholder-icon"></i>
+            <label class="item item-input" style="background-color:#b71c1c; width: 90%;margin-left:5%;margin-top:-5px;">
+              <i class="icon ion-ios-search placeholder-icon" style='color:#FFF'></i>
               <input type="text" placeholder="Buscar..." ng-model="filtro" style="color:#FFF;">
             </label>
           
@@ -14,8 +14,8 @@
      </div>
     <ion-content class="has-subheader">
         <div ng-if="vm.reservas.length == 0" style='text-align: center'>
-            <i class='ion ion-eye-andisabled icon-vacio'></i>
-             <h3 class='text-info'>No hay reservas en estas fechas</h3>
+            <img src='img/zero.png' style='width:60%;margin-top:10%'>
+             <h4 class='text-info'>No hay reservas en estas fechas</h4>
         </div>
         <div ng-if="vm.reservas.length > 0">
            
@@ -23,7 +23,7 @@
        
             <ul class="list">
                 <li class="item" ng-repeat="item in vm.reservas | filter: filtro | orderBy : ['fecha', 'hora'] " style="border-bottom:1px solid #e0e0e0;" ng-click="vm.viewReserva(item);">
-                    {{item.fecha}} {{item.diaSemana}} - {{item.hora}}:00 <br>
+                    <h4 class='text-danger'>{{item.fecha}} {{item.diaSemana}} - <span class='text-success'>{{item.hora}}:00</span> </h4>
                     {{item.nombres}} 
                 </li>
             </ul>
