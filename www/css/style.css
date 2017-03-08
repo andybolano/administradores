@@ -27,6 +27,9 @@ h2,h4{
 .item.item-divider .badge {
     top: 0px;
 }
+.button{
+    font-family: 'fg-demi-cond';
+}
 .degrade-birrias {
     background: -moz-linear-gradient(-45deg, rgba(255, 119, 1, 1) 0, rgba(255, 119, 1, 1) 25%, rgba(226, 65, 70, 1) 100%)!important;
     background: -webkit-gradient(left top, right bottom, color-stop(0, rgba(255, 119, 1, 1)), color-stop(25%, rgba(255, 119, 1, 1)), color-stop(100%, rgba(226, 65, 70, 1)))!important;
