@@ -26,12 +26,21 @@
    
 }
 
+.button.button-assertive {
+    border-color: transparent;
+    background-color: #b71c1c;
+    color: #fff;
+   
+}
+
 .bar.bar-energized {
     border-color: #FF7701;
     background-color: #FF7701;
     background-image:none;
     color: #fff;
 }
+
+
 
 
 .item-thumbnail-left, .item-thumbnail-left .item-content{
@@ -45,7 +54,7 @@
     border: none;
     background-color:transparent;
     color:#FFF;;
-    font-size:14px;
+    font-size:18px;
 }
 
 .item{
