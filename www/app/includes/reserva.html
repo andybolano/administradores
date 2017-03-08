@@ -1,1 +1,71 @@
+<ion-modal-view style="background-color: rgba(0,0,0,0.6)">
+    <ion-content class="miModal">
+         <button class="button button-clear button-positive" ng-click="vm.closeModalReserva();" style="float: right;z-index:1001"><i class="ion ion-close" style="color:red;font-size:24px;"></i></button>
+ 
+                  <div class="item item-text-wrap">
+                      <span style="font-weight: 600;">Información del cliente</span>
+                      <div class="row">
+                          <div class="col col-20">
+                              <img src='img/profile-user.png' style='width:60px;height:60px'>
+                          </div>
+                          <div class='col' style='text-transform: uppercase;font-size:14px;'>
+                              <div style='margin-top:10px;'>
+                              <h4 style='font-weight:500'>{{vm.v_reserva.nombres}}</h4>
+                              <h4>{{vm.v_reserva.telefono}}</h4>
+                              </div> 
+                          </div>
+                      </div>
+                      <div class='row'>
+                          <div class='col'>
+                    <table class="table">
+                            <tr style="border-bottom:1px solid #e0e0e0;">
+                                <th style="text-align: center;"><small class="text-muted">Cumplidas</small></th>
+                            <th style="text-align: center;"><small class="text-muted">Incumplidas</small></th>
+                            <th style="text-align: center;"><small class="text-muted">Canceladas</small></th>
+                        </tr>
+                            <tr>
+                            <td style="text-align: center;padding-top:10px;"><span class="label-danger">{{vm.v_estadisticas.cumplidas}}</span></td>
+                            <td style="text-align: center;"><span class="label-danger">{{vm.v_estadisticas.incumplidas}}</span></td>
+                            <td style="text-align: center;"><span class="label-danger">{{vm.v_estadisticas.canceladas}}</span></td>
+                        </tr>
+                        </tbody>
+                      </table>
+                          </div>
+                      </div>
+             </div>   
+         
+                  <div class="item item-text-wrap">
+                      <span style="font-weight: 600;">Información de reserva</span>
+                      <div class="row">
+                          <div class="col">
+                                  <p> <strong>Cancha:</strong> {{vm.v_reserva.nombrecancha}}</p>
+                                  <p> <strong>Fecha:</strong> {{vm.v_reserva.fecha}}</p>
+                                  <p> <strong>Hora:</strong> {{vm.v_reserva.hora}}:00</p>
 
+     
+                                  <div  style="text-align: center;">
+                                   
+                                    <p ng-if="vm.v_reserva.estado === 'confirmadasinabono'"><span class="badge badge-balanced">CONFIRMADA SIN ABONO</span></p>
+                                    <p ng-if="vm.v_reserva.estado === 'confirmadaconabono'"><span class="badge badge-balanced">CONFIRMADA CON ABONO</span></p>
+                                    <p ng-if="vm.v_reserva.estado === 'cumplida'"><span class="badge badge-assertive">CUMPLIDA</span></p>
+                                    <p ng-if="vm.v_reserva.estado === 'incumplida'"><span class="badge badge-dark">INCUMPLIDA</span></p>
+                                    <p ng-if="vm.v_reserva.estado === 'cancelada'"><span class="badge badge-dark">CANCELADA</span></p>
+                                    
+                                  </div>
+                                  </div>
+                      </div>
+                      
+             </div> 
+         <div class="item item-text-wrap">
+                      <span style="font-weight: 600;">Información financiera</span>
+                      <div class="row">
+                          <div class="col">
+                               <p><strong>Valor:</strong> {{vm.v_reserva.precio | currency:undefined:0}}</p>
+                        <p><strong>Abono Requerido:</strong> {{vm.v_reserva.abonoRequerido |currency:undefined:0}}</p>
+                        <p><strong>Abono Liquidado:</strong> {{vm.v_reserva.abonoLiquidado | currency:undefined:0}}</p>
+                        <p><strong>Valor Pagado:</strong> {{vm.v_reserva.pago | currency:undefined:0}}</p>
+                          </div>
+                      </div>    
+         </div>     
+    </ion-content>
+  </ion-modal-view>

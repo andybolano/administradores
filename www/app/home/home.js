@@ -17,7 +17,7 @@
             .module('home')
             .controller('homeCtrl', HomeCtrl);
     /* @ngInject */
-    function HomeCtrl($ionicLoading, $q, $timeout,$scope,reservasService,sessionService) {
+    function HomeCtrl($ionicLoading,$scope,reservasService,sessionService) {
 
     var vm = this;
     vm.getReservasHoy = getReservasHoy;
@@ -83,7 +83,7 @@
                         }, function (err) {
                             console.log(err)
                             if (err.status == 401) {
-                                message(err.data.respuesta);
+                                message("Iniciar sesión");
                             } else {
                                 message("Ha ocurrido un problema!");
                             }

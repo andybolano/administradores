@@ -93,3 +93,33 @@ small{
 .text-info {
     color: #23c6c8;
 }
+
+.miModal
+{
+    width: 90%;height: 90%;margin-left:5%;margin-top: 5%;background-color:#FFF;
+    -webkit-box-shadow: -2px -1px 26px -2px rgba(0,0,0,0.86);
+-moz-box-shadow: -2px -1px 26px -2px rgba(0,0,0,0.86);
+box-shadow: -2px -1px 26px -2px rgba(0,0,0,0.86);
+}
+
+.table{
+    width: 100%;
+}
+.badge-danger, .label-danger {
+   display: inline;
+    background-color: #ed5565;
+    color: #FFF;
+    font-weight: 600;
+    font-size:24px;
+    padding: 3px 8px;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+    line-height: 1;
+}
+
+.item .badge {
+    display:inline;
+    position:relative
+}

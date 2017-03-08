@@ -1,12 +1,12 @@
 <ion-view  title="Información de hoy" cache-view="false" class="platform-android4_2" style="background-color:#F3F3F4">
-<ion-content overflow-scroll="false" class="has-header">
+    <ion-content overflow-scroll="false" class="has-header">
     <ion-refresher
     pulling-text="Actualizar Información..."
     on-refresh="vm.getReservasHoy()">
   </ion-refresher>
-       <div ng-if='vm.network == false' style='width: 100%; text-align: center;'>
+       <!--<div ng-if='vm.network == false' style='width: 100%; text-align: center;'>
                     <img src="img/notnetwork.png" alt="" width='60%' style='margin-top:20%;'/>
-       </div>
+       </div>-->
    <div ng-if='vm.network == true'>
         <div class="card">
   <div class="item item-divider info">

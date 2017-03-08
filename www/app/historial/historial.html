@@ -1,15 +1,15 @@
 <ion-view  title="Historial de Reservas" cache-view="false" class="platform-android4_2" style="background-color:#F3F3F4">
 <ion-content overflow-scroll="false" class="has-header">
-    <div class="card">
+   <div style="background-color:#FF7701;color:#FFF;">
     <div class="row">
         <div class="col col-20">
             Desde:
         </div>
         <div class="col">
-            <div class="list" style="border:1px solid #e0e0e0">
+            <div class="list" style="border:1px solid #FFF;">
                 <label class="item item-input">
-                  <i class="icon ion-calendar placeholder-icon"></i>
-                  <input type="date" ng-model="vm.fecha1">
+                    <i class="icon ion-calendar placeholder-icon" style="color:#FFF"></i>
+                  <input type="date" ng-model="vm.fecha1" style="color:#FFF">
                 </label>
               </div>
         </div>
@@ -21,15 +21,15 @@
         <div class="col">
             <div class="list" style="border:1px solid #e0e0e0">
                 <label class="item item-input">
-                  <i class="icon ion-calendar placeholder-icon"></i>
-                  <input type="date" ng-model="vm.fecha2">
+                  <i class="icon ion-calendar placeholder-icon" style="color:#FFF"></i>
+                  <input type="date" ng-model="vm.fecha2" style="color:#FFF">
                 </label>
               </div>
         </div>
     </div>
     <div class="row">
         <div class="col">
-            <button class="button button-positive" style="width: 100%"  ng-click="vm.getReservas()">Consultar</button>
+            <button class="button button-assertive" style="width: 100%"  ng-click="vm.getReservas()">Consultar</button>
         </div>
     </div>
     </div>
@@ -97,10 +97,10 @@
 </div> 
 </ion-content>
 </ion-view>
-
+<script id="reserva.html" type="text/ng-template">
+      <ng-include src="'app/includes/reserva.html'"></ng-include>
+</script>
 <script id="modalReservas.html" type="text/ng-template">
       <ng-include src="'app/historial/modalReservas.html'"></ng-include>
 </script>
-<script id="reserva.html" type="text/ng-template">
-      <ng-include src="'app/include/reserva.html'"></ng-include>
-</script>
+

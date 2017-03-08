@@ -37,6 +37,19 @@
             }
         } ;
         
+         function logout(){ 
+           var defered = $q.defer();
+            var promise = defered.promise;
+            $http.post(API_URL+'/logout').then(success, error);
+            return promise;
+             function success(p) {
+                defered.resolve(p);
+            }
+            function error(error) {
+                defered.reject(error);
+            }
+        };
+        
         function registro(object){
             var defered = $q.defer();
             var promise = defered.promise;
@@ -57,6 +70,7 @@
         function storeUser(data) {
             var data = JSON.parse("[" + data.user + "]");
             localStorage.setItem('data',JSON.stringify(data[0].administrador));
+            localStorage.setItem('sitio',JSON.stringify(data[0].sitio));
             localStorage.setItem('email',data[0].email);
             localStorage.setItem('token',data[0].token);
             localStorage.setItem('userIsLogin',true);
@@ -64,6 +78,7 @@
         function currentUser() {            
             return JSON.parse(localStorage.getItem('data'));
         }
+        
 
         function autologin() {
             var defered = $q.defer();
