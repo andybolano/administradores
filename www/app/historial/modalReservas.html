@@ -13,8 +13,9 @@
 
      </div>
     <ion-content class="has-subheader">
-        <div ng-if="vm.reservas.length == 0">
-            <h3>No hay reservas en estas fechas</h3>
+        <div ng-if="vm.reservas.length == 0" style='text-align: center'>
+            <i class='ion ion-eye-disabled icon-vacio'></i>
+             <h3 class='text-info'>No hay reservas en estas fechas</h3>
         </div>
         <div ng-if="vm.reservas.length > 0">
            

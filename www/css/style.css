@@ -1,4 +1,38 @@
 /* Empty. Add your own CSS if you like */
+@font-face{
+    font-family: "Intro";
+    font-style: normal;
+    font-weight: normal;
+    src: url(../fonts/Intro.otf);
+}
+@font-face{
+   font-family: "fg-demi-cond";
+   font-style: normal;
+   font-weight: normal;
+   src: url(../fonts/fg-demi-cond.TTF);
+}
+@font-face{
+    font-family: "Quick-bold";
+    font-style: normal;
+    font-weight: normal;
+    src: url(../fonts/Quicksand-Bold.otf);
+}
+@font-face{
+    font-family: "Quick-regular";
+    font-style: normal;
+    font-weight: normal;
+    src: url(../fonts/Quicksand-Regular.otf);
+}
+
+p{
+    font-family: 'Quick-regular';
+}
+h2,h3{
+    font-family:'fg-demi-cond';
+}
+.item.item-divider .badge {
+    top: 0px;
+}
 .degrade-birrias {
     background: -moz-linear-gradient(-45deg, rgba(255, 119, 1, 1) 0, rgba(255, 119, 1, 1) 25%, rgba(226, 65, 70, 1) 100%)!important;
     background: -webkit-gradient(left top, right bottom, color-stop(0, rgba(255, 119, 1, 1)), color-stop(25%, rgba(255, 119, 1, 1)), color-stop(100%, rgba(226, 65, 70, 1)))!important;
@@ -6,6 +40,18 @@
     background: -o-linear-gradient(-45deg, rgba(255, 119, 1, 1) 0, rgba(255, 119, 1, 1) 25%, rgba(226, 65, 70, 1) 100%)!important;
     background: -ms-linear-gradient(-45deg, rgba(255, 119, 1, 1) 0, rgba(255, 119, 1, 1) 25%, rgba(226, 65, 70, 1) 100%)!important;
     background: linear-gradient(135deg, rgba(255, 119, 1, 1) 0, rgba(255, 119, 1, 1) 25%, rgba(226, 65, 70, 1) 100%)!important;
+}
+
+.degrade-birrias-header {
+background: rgba(255,119,1,1);
+background: -moz-linear-gradient(left, rgba(255,119,1,1) 0%, rgba(227,66,67,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,119,1,1)), color-stop(100%, rgba(227,66,67,1)));
+background: -webkit-linear-gradient(left, rgba(255,119,1,1) 0%, rgba(227,66,67,1) 100%);
+background: -o-linear-gradient(left, rgba(255,119,1,1) 0%, rgba(227,66,67,1) 100%);
+background: -ms-linear-gradient(left, rgba(255,119,1,1) 0%, rgba(227,66,67,1) 100%);
+background: linear-gradient(to right, rgba(255,119,1,1) 0%, rgba(227,66,67,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff7701', endColorstr='#e34243', GradientType=1 );
+color:#FFF;
 }
 
 
@@ -38,9 +84,22 @@
     background-color: #FF7701;
     background-image:none;
     color: #fff;
+    
 }
 
+.bar.bar-assertive {
+    border-color: #e42112;
+    background-color: #ef473a;
+    background-image:none;
+    color: #fff;
+   
+}
 
+.platform-android .bar .title {
+    font-size: 16px;
+    line-height: 44px;
+     font-family: 'Quick-bold';
+}
 
 
 .item-thumbnail-left, .item-thumbnail-left .item-content{
@@ -54,12 +113,30 @@
     border: none;
     background-color:transparent;
     color:#FFF;;
-    font-size:18px;
+    font-size:14px;
+     font-family: 'Quick-regular';
 }
 
 .item{
    border-color:transparent;
    background-color: transparent;
+}
+
+.item-input {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 3px 5px 3px 5px;
 }
 
 .item.active,
@@ -70,6 +147,16 @@
 .item .item-content.activated {
   border-color:transparent;
   background-color:transparent; 
+}
+
+.item-divider {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    min-height: 30px;
+    background-color: #f5f5f5;
+    color: #c62828;
+    font-weight: 500;
+    font-family: 'Quick-bold';
 }
 
 .item.active.item-complex > .item-content, .item.activated.item-complex > .item-content, .item-complex.active .item-content.item-complex > .item-content, .item-complex.activated .item-content.item-complex > .item-content, .item .item-content.active.item-complex > .item-content, .item .item-content.activated.item-complex > .item-content {
@@ -85,24 +172,37 @@
 }
 small{
     font-size: 12px;
+         font-family: 'Quick-regular';
+}
+.num-min{
+      font-family: 'fg-demi-cond';
 }
 .num-small{
  font-size:20px !important;   
- font-weight:bold !important;
+  font-family: 'fg-demi-cond';
 }
 
 .num-big{
      font-size:28px !important; 
+      font-family: 'fg-demi-cond';
 }
 
 .text-success {
     color: #1c84c6 !important;
 }
-
-.text-info {
-    color: #23c6c8;
+.text-warning {
+    color: #c62828 !important;
+}
+.text-danger{
+    color: #e65100  !important;
+}
+.text-info{
+    color: #9e9e9e !important;
 }
 
+.text-primary{
+    color:#1b5e20 !important;
+}
 .miModal
 {
     width: 90%;height: 90%;margin-left:5%;margin-top: 5%;background-color:#FFF;
@@ -131,4 +231,14 @@ box-shadow: -2px -1px 26px -2px rgba(0,0,0,0.86);
 .item .badge {
     display:inline;
     position:relative
+}
+
+.icon-vacio{
+ font-size: 48px; 
+ color:#bdbdbd;
+}
+
+.platform-ios input[type="datetime-local"], .platform-ios input[type="date"], .platform-ios input[type="month"], .platform-ios input[type="time"], .platform-ios input[type="week"], .platform-android input[type="datetime-local"], .platform-android input[type="date"], .platform-android input[type="month"], .platform-android input[type="time"], .platform-android input[type="week"] {
+    padding-top: 0px; 
+   
 }

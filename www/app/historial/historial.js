@@ -121,7 +121,6 @@
 
         function viewReserva(reserva) {
             vm.v_reserva = reserva;
-            console.log(vm.v_reserva)
             vm.v_estadisticas.cumplidas = 0;
             vm.v_estadisticas.incumplidas = 0;
             vm.v_estadisticas.canceladas = 0;
