@@ -11,7 +11,7 @@
     </ion-header-bar>
     <ion-content class="custom content-menu has-header">
         <div style="height:100px;padding-top:10px;">
-            <a class="item item-thumbnail-left" menu-toggle="left" ui-sref="cliente.perfil"  style="background-color: transparent;border:0">
+            <a class="item item-thumbnail-left" menu-toggle="left"  style="background-color: transparent;border:0">
                 <img src="img/profile-sitio.png" style="border-radius:50%;width:60px;height: 60px" ng-if="vm.sitio.image === 0">
                 <img src="{{vm.sitio.ruta}}" style="border-radius:50%;width:60px;height: 60px" ng-if="vm.sitio.image === 1">
                 <p style="color:#FFF;font-size:12px;">C.C. {{vm.usuario.cedula}}</p>
