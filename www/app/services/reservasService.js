@@ -85,7 +85,7 @@
                       {
                           canceler.resolve();
                           $ionicLoading.hide();
-                          message("Tiempo de respuesta agotado, verifique su conexion");
+                          message("Conexión lenta, intente nuevamente");
                       },10000);
                       var canceler = $q.defer();
                       
@@ -137,7 +137,7 @@
                       {
                           canceler.resolve();
                           $ionicLoading.hide();
-                          message("Tiempo de respuesta agotado, verifique su conexion");
+                          message("Conexión lenta, intente nuevamente");
                       },10000);
                       var canceler = $q.defer();
             $http.get(API_URL+'/reservas/sitio/'+id+'/fecha/'+fecha1+'/'+fecha2+'/historial',{timeout: canceler.promise}).then(success, error);

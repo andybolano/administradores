@@ -5,7 +5,6 @@
                 $stateProvider
                         .state('usuario.historial', {
                             url: '/historial',
-                            cache:false,
                             templateUrl: 'app/historial/historial.html',
                             controller: 'historialCtrl as vm'
                         })
@@ -111,7 +110,7 @@
                 if (err.status == 401) {
                     message(err.data.respuesta);
                 } else {
-                    message("Tiempo de respuesta agotado, verifique su conexion");
+                    message("Conexión lenta, intente nuevamente");
                 }
             });
         }
@@ -149,7 +148,7 @@ $ionicLoading.show();
                 if (err.status == 401) {
                     message(err.data.respuesta);
                 } else {
-                    message("Ha ocurrido un problema!");
+                   message("Conexión lenta, intente nuevamente");
                 }
             });
 

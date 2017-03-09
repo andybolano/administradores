@@ -19,9 +19,9 @@
         </div>
         <div ng-if="vm.reservas.length > 0">
             <ul class="list">
-                <li class="item" ng-repeat="item in ::vm.reservas | filter: filtro | orderBy : ['fecha', 'hora'] " style="border-bottom:1px solid #e0e0e0;" ng-click="vm.viewReserva(item);">
-                    <h4 class='text-danger'>{{::item.fecha}} {{::item.diaSemana}} - <span class='text-success'>{{::item.hora}}:00</span> </h4>
-                    {{::item.nombres}} 
+                <li class="item" ng-repeat="item in vm.reservas | filter: filtro | orderBy : ['fecha', 'hora'] " style="border-bottom:1px solid #e0e0e0;" ng-click="vm.viewReserva(item);">
+                    <h4 class='text-danger'>{{item.fecha}} {{item.diaSemana}} - <span class='text-success'>{{item.hora}}:00</span> </h4>
+                    {{item.nombres}} 
                 </li>
             </ul>
         </div>

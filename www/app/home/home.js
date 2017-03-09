@@ -86,7 +86,7 @@
                 if (err.status == 401) {
                     message("Iniciar sesión");
                 } else {
-                    message("Tiempo de respuesta agotado, verifique su conexion");
+                    message("Conexión lenta, intente nuevamente");
                 }
             }).finally(function () {
                 $scope.$broadcast('scroll.refreshComplete');
