@@ -6,7 +6,7 @@
         .service('reservasService', reservasService);
 
     /* @ngInject */
-    function reservasService($http,$q, API_URL) {
+    function reservasService($http,$q, API_URL,$timeout,$ionicLoading) {
 
         var service = {
             post: post,
@@ -81,13 +81,23 @@
         function getByFechaAll(id,fecha){
            var defered = $q.defer();
             var promise = defered.promise;
-            $http.get(API_URL+'/reservas/sitio/'+id+'/fecha/'+fecha+'/all').then(success, error);
+            var timeoutPromise = $timeout(function ()
+                      {
+                          canceler.resolve();
+                          $ionicLoading.hide();
+                          message("Tiempo de respuesta agotado, verifique su conexion");
+                      },10000);
+                      var canceler = $q.defer();
+                      
+            $http.get(API_URL+'/reservas/sitio/'+id+'/fecha/'+fecha+'/all',{timeout: canceler.promise}).then(success, error);
             return promise;
              function success(p) {
+                $timeout.cancel(timeoutPromise);
                 defered.resolve(p);
             }
             function error(error) {
-                defered.reject(error)
+                  $timeout.cancel(timeoutPromise);
+                defered.reject(error);
             } 
         }
         
@@ -123,14 +133,27 @@
         function getHistorial(id,fecha1,fecha2){
              var defered = $q.defer();
             var promise = defered.promise;
-            $http.get(API_URL+'/reservas/sitio/'+id+'/fecha/'+fecha1+'/'+fecha2+'/historial').then(success, error);
+             var timeoutPromise = $timeout(function ()
+                      {
+                          canceler.resolve();
+                          $ionicLoading.hide();
+                          message("Tiempo de respuesta agotado, verifique su conexion");
+                      },10000);
+                      var canceler = $q.defer();
+            $http.get(API_URL+'/reservas/sitio/'+id+'/fecha/'+fecha1+'/'+fecha2+'/historial',{timeout: canceler.promise}).then(success, error);
             return promise;
              function success(p) {
+                  $timeout.cancel(timeoutPromise);
                 defered.resolve(p);
             }
             function error(error) {
+                 $timeout.cancel(timeoutPromise);
                 defered.reject(error)
             }
+        }
+        
+        function message(msg) {
+            $ionicLoading.show({template: msg, noBackdrop: true, duration: 2000});
         }
     }
 })();

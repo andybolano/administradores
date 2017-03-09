@@ -75,13 +75,19 @@
           </div>
       </div>
   </div>
-</div> 
+</div>
 </ion-content>
-    <script id="reserva.html" type="text/ng-template">
-      <ng-include src="'app/includes/reserva.html'"></ng-include>
+<script id="reserva.html" type="text/ng-template">
+    
+         <ng-include src="'app/includes/reserva.html'"></ng-include>
+        
 </script>
 <script id="modalReservas.html" type="text/ng-template">
+    <div class="modal">
+       <ion-pane>  
       <ng-include src="'app/historial/modalReservas.html'"></ng-include>
+       </ion-pane>
+    </div>
 </script>
 </ion-view>
 

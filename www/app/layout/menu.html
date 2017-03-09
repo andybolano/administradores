@@ -12,8 +12,9 @@
     <ion-content class="custom content-menu has-header">
         <div style="height:100px;padding-top:10px;">
             <a class="item item-thumbnail-left" menu-toggle="left"  style="background-color: transparent;border:0">
-                <img src="img/profile-sitio.png" style="border-radius:50%;width:60px;height: 60px" ng-if="vm.sitio.image === 0">
-                <img src="{{vm.sitio.ruta}}" style="border-radius:50%;width:60px;height: 60px" ng-if="vm.sitio.image === 1">
+               
+                <img src="img/profile-sitio.png" style="border-radius:50%;width:60px;height: 60px" ng-if="vm.sitio.image === '0'">
+                <img src="{{vm.sitio.ruta}}" style="border-radius:50%;width:60px;height: 60px" ng-if="vm.sitio.image === '1'">
                 <p style="color:#FFF;font-size:12px;">C.C. {{vm.usuario.cedula}}</p>
                 <h2 style="font-weight:600;color:#FFF;font-size:14px;">{{vm.usuario.nombres}} {{vm.usuario.apellidos}}</h2>
                 <p style="color:#FFF;font-size:12px;">{{vm.usuario.correo}}</p>
@@ -22,7 +23,7 @@
         <ion-list>
             <ion-item  menu-toggle="left" ui-sref="usuario.home"  ng-class="{active : vm.isActive ('/usuario/home')}" ><i class="icon ion-android-home" style="padding-right:5px;"></i> Inicio</ion-item>  
             <ion-item  menu-toggle="left" ui-sref="usuario.historial"  ng-class="{active : vm.isActive ('/usuario/historial')}"><i class="icon ion-android-calendar" style="padding-right:5px;"></i> Historial de reservas</ion-item>  
-            <ion-item  menu-toggle="left" href="javascript:;" ng-click="vm.logout();" ><i class="icon ion-android-exit" style="padding-right:5px;"></i> Cerrar Sesión</ion-item>
+            <ion-item  menu-toggle="left" href="javascript:;" ng-click="vm.logout();"><i class="icon ion-android-exit" style="padding-right:5px;color:#FF7701"></i> <span style="color:#FF7701">Cerrar Sesión</span></ion-item>
         </ion-list>
     </ion-content>
 </ion-side-menu>

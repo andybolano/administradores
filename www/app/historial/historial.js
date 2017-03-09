@@ -41,7 +41,6 @@
 
         $ionicModal.fromTemplateUrl('reserva.html', {
             scope: $scope,
-            animation: 'slide-in-up'
         }).then(function (modal) {
             $scope.modalReserva = modal;
         });
@@ -112,7 +111,7 @@
                 if (err.status == 401) {
                     message(err.data.respuesta);
                 } else {
-                    message("Ha ocurrido un problema!");
+                    message("Tiempo de respuesta agotado, verifique su conexion");
                 }
             });
         }

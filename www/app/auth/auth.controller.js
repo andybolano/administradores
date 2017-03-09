@@ -50,9 +50,8 @@
                 }
             }
             function error(error) {
-                console.log(JSON.stringify(error))
                 $ionicLoading.hide();
-                message("Verifica tu conexión");
+                message("Tiempo de respuesta agotado, verifique su conexion");
             }
         }
         

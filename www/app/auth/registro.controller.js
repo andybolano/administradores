@@ -71,7 +71,7 @@
             function error(error) {
                  vm.oculto = false;
                 $ionicLoading.hide();
-                message("Verifica tu conexión");
+                message("Ha ocurrido un problema, intentalo de nuevo.");
             }
     };
  
