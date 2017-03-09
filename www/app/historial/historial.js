@@ -100,6 +100,7 @@
             $ionicLoading.show();
             var promisePost = reservasService.getHistorial(sessionService.getIdSitio(), vm.fecha1.toDateInputValue(), vm.fecha2.toDateInputValue());
             promisePost.then(function (d) {
+                console.log(d.data.reservas)
                 vm.reservas = d.data.reservas;
                 $ionicLoading.hide();
                 drawChart();
