@@ -98,7 +98,6 @@
             $ionicLoading.show();
             var promisePost = reservasService.getHistorial(sessionService.getIdSitio(), vm.fecha1.toDateInputValue(), vm.fecha2.toDateInputValue());
             promisePost.then(function (d) {
-                console.log(d.data.reservas)
                 vm.reservas = d.data.reservas;
                 $ionicLoading.hide();
                 drawChart();
@@ -123,35 +122,7 @@
 
         function viewReserva(reserva) {
             vm.v_reserva = reserva;
-            vm.v_estadisticas.cumplidas = 0;
-            vm.v_estadisticas.incumplidas = 0;
-            vm.v_estadisticas.canceladas = 0;
-$ionicLoading.show();
-            var promisePost = clienteService.get(reserva.idCliente);
-            promisePost.then(function (d) {
-                vm.v_cliente = d.data.cliente;
-                $ionicLoading.hide();
-                  $scope.modalReserva.show();
-                for (var i = 0; i < d.data.reservas.length; i++) {
-                    if (d.data.reservas[i].estado === 'cumplida') {
-                        vm.v_estadisticas.cumplidas = d.data.reservas[i].cantidad;
-                    }
-                    if (d.data.reservas[i].estado === 'incumplida') {
-                        vm.v_estadisticas.incumplidas = d.data.reservas[i].cantidad;
-                    }
-                    if (d.data.reservas[i].estado === 'cancelada') {
-                        vm.v_estadisticas.canceladas = d.data.reservas[i].cantidad;
-                    }
-                }
-
-            }, function (err) {
-                if (err.status == 401) {
-                    message(err.data.respuesta);
-                } else {
-                   message("Conexión lenta, intente nuevamente");
-                }
-            });
-
+            $scope.modalReserva.show();
           
         }
 
