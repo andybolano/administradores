@@ -12,7 +12,6 @@
                 if (window.StatusBar) {
                     StatusBar.styleDefault();
                 }
-    
              autenticate();
             });
             function autenticate(){
@@ -29,9 +28,6 @@
                    $state.go('login');
                }
             }
-            
-           
-            
             function hideSplash() {
                 if(navigator.splashscreen){
                     setTimeout(function () {
